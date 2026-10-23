@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blog – Axel Bigaud</title>
+<style>
+:root{--bg:#f7f8fa;--card:#fff;--ink:#1b2430;--muted:#5b6675;--accent:#1f5f8b;--line:#dde2e8;--tag:#e8f0f6}
+@media (prefers-color-scheme:dark){:root{--bg:#12171d;--card:#1a2129;--ink:#e6ebf0;--muted:#9aa6b3;--accent:#7bb6df;--line:#2b3540;--tag:#22303c}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.65 Georgia,"Times New Roman",serif}
+a{color:var(--accent)}
+a:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+header,main,footer{max-width:760px;margin:0 auto;padding:0 20px}
+header{padding-top:40px}
+h1,h2,h3,.meta,nav{font-family:"Segoe UI",system-ui,sans-serif}
+h1{font-size:2rem;margin:0 0 8px}
+header p{color:var(--muted);margin:0 0 20px}
+nav ul{list-style:none;padding:0;margin:0 0 32px;display:flex;flex-wrap:wrap;gap:8px}
+nav a{display:block;padding:6px 12px;border-radius:6px;background:var(--tag);text-decoration:none;font-size:.9rem}
+article{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:26px 28px;margin-bottom:28px}
+article h2{font-size:1.45rem;margin:0 0 4px;line-height:1.3}
+article h3{font-size:1.1rem;margin:28px 0 8px}
+.meta{color:var(--muted);font-size:.85rem;margin:0 0 18px}
+article img{max-width:100%;height:auto;border-radius:6px;margin:12px 0}
+.comp{background:var(--tag);border-radius:8px;padding:12px 18px;margin:14px 0}
+.comp p{margin:0 0 6px;font-family:"Segoe UI",system-ui,sans-serif;font-weight:600;font-size:.95rem}
+.comp ul{margin:0;padding-left:20px}
+.comp li{margin:4px 0;font-size:.95rem}
+footer{padding:10px 20px 50px;font-family:"Segoe UI",system-ui,sans-serif}
+</style>
+</head>
+<body>
+<header>
+  <h1>Blog</h1>
+  <p>Stage, certifications et ateliers professionnels.</p>
+  <nav aria-label="Articles">
+    <ul>
+      <li><a href="#stage">Missions de stage (semaines 1 à 5)</a></li>
+      <li><a href="#sql">Missions 2 : requêtes SQL</a></li>
+      <li><a href="#etl">Découverte de l’ETL</a></li>
+      <li><a href="#html-css">Certification HTML5/CSS3</a></li>
+      <li><a href="#cpp">Certification C++</a></li>
+      <li><a href="#wordpress">Site WordPress</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+
+<article id="stage">
+  <h2>Semaine 1 : Découverte de l’environnement, prise en main et premières requêtes</h2>
+  <p class="meta">axelbigaud72 · 15 septembre · 4 min de lecture</p>
+  <p>Au cours de la <strong>première semaine</strong> au Conseil Départemental de la Vendée, vous avez découvert l’organisation de l’administration et de la DSN tout en appliquant les consignes de sécurité du RSSI via un portail bastion. Pour démarrer la mission de détection des comptes inactifs, vous avez pris en main la machine virtuelle mise à votre disposition (avec DBeaver déjà installé), configuré l’outil Talend ETL et renseigné le token d’accès fourni par votre maître de stage pour vous connecter au dépôt Git sur Azure DevOps. Vous vous êtes ensuite entraîné à la rédaction de requêtes SQL complexes ainsi qu’à la création d’un premier job d’extraction CSV dans Talend.</p>
+  <div class="comp"><p>Compétences du Bloc 1 associées</p><ul>
+    <li><strong>1.1 Recenser et identifier les ressources numériques :</strong> identification de l’architecture du SI, des serveurs, bases de données, annuaire LDAP et gestionnaires de version (Azure DevOps/Git).</li>
+    <li><strong>1.2 Exploiter des référentiels, normes et standards :</strong> prise en compte des règles de sécurité présentées par le RSSI et passage par un portail bastion sécurisé.</li>
+    <li><strong>2.2 Traiter des demandes réseau, système ou applicatives / 2.3 Traiter des demandes applicatives :</strong> réponse à un besoin de maintenance applicative et d’évolution des accès utilisateurs.</li>
+  </ul></div>
+
+  <h3>Semaine 2 : Exploration avancée des composants Talend et requêtes LDAP</h3>
+  <p>Durant cette deuxième semaine, vous avez approfondi la maîtrise de l’outil Talend en créant des jobs expérimentaux. Vous avez mis en place la gestion de connexion aux bases de données via les composants tPrejob et tPostjob (tDBConnection, tDBClose), tout en traitant des erreurs de séquence et de blocage de fichiers existants (décochage d’options par défaut après recherche dans la documentation). Vous avez exploré les jointures de données avec tJoin et tMap. Enfin, vous avez appréhendé l’annuaire Active Directory en concevant et en testant des requêtes LDAP récursives filtrées (composant tLDAPInput) afin de cibler les membres d’un groupe applicatif.</p>
+  <div class="comp"><p>Compétences du Bloc 1 associées</p><ul>
+    <li><strong>1.4 Vérifier la continuité de service :</strong> gestion des erreurs de traitement et d’exécution dans Talend.</li>
+    <li><strong>2.2 Traiter des demandes réseau, système ou applicatives :</strong> résolution de dysfonctionnements techniques (séquençage pre/post job, écrasement de fichiers CSV).</li>
+    <li><strong>4.2 Planification et organisation des activités :</strong> structuration et suivi des étapes de développement.</li>
+    <li><strong>6.1 Mettre en place son environnement d’apprentissage personnel :</strong> autonomie dans la recherche de solutions au sein de la documentation technique officielle Talend.</li>
+  </ul></div>
+
+  <h3>Semaine 3 : Conception et assemblage du job principal d’ETL</h3>
+  <p>Cette semaine a été consacrée au développement du job principal de détection des comptes à désactiver. Vous avez structuré le flux global : utilisation de contextes centralisés, connexion SQL filtrant les comptes actifs et excluant les comptes applicatifs/TMA, et extraction LDAP des agents ayant un employeeId. Vous avez réalisé la jointure complexe dans tMap entre le champ email et userPrincipalName pour séparer les comptes à conserver des flux à rejeter. Enfin, vous avez intégré l’export du fichier CSV généré vers un serveur FTP distant via les composants tFileList et tFTPPut pour mise à disposition des administrateurs.</p>
+  <div class="comp"><p>Compétences du Bloc 1 associées</p><ul>
+    <li><strong>1.3 Mettre en place et vérifier les habilitations :</strong> conception d’un mécanisme de vérification et de nettoyage des accès/habilitations inactifs dans les applications.</li>
+    <li><strong>1.5 Gérer les sauvegardes / versionnement :</strong> gestion de l’exportation sécurisée et de la centralisation des fichiers de traitement sur serveur.</li>
+    <li><strong>4.1 Analyse des objectifs et organisation du projet :</strong> alignement de la logique de développement avec l’objectif métier de purge des accès.</li>
+  </ul></div>
+
+  <h3>Semaine 4 : Optimisations, automatisation des alertes</h3>
+  <p>Lors de la quatrième semaine, vous avez perfectionné le job à la suite des retours de recette. Vous avez ajouté un composant tFileDelete pour nettoyer les fichiers locaux temporaires et éviter les doublons. Face à des cas particuliers de données (comptes actifs sans adresse e-mail), vous avez optimisé la jointure tMap en vous basant sur les identifiants uniques (Utilisateur / sAMAccountName) et en exploitant le mécanisme natif <em>Inner Join Reject</em>. Vous avez affiné la requête SQL d’origine. Enfin, vous avez automatisé l’envoi d’un e-mail d’alerte dynamique (tSendMail) notifiant aux administrateurs le statut de l’exécution, les métriques (nombre de comptes conservés/à désactiver) et le chemin d’accès au fichier distant.</p>
+  <div class="comp"><p>Compétences du Bloc 1 associées</p><ul>
+    <li><strong>1.2 Exploiter des référentiels, normes et standards :</strong> respect des conventions de nommage et optimisation des requêtes de jointure.</li>
+    <li><strong>2.3 Traiter des demandes applicatives :</strong> diagnostic, correction d’anomalies de jointure et adaptation du comportement applicatif aux retours utilisateurs/recette.</li>
+    <li><strong>5.1 Tests d’intégration et d’acceptation :</strong> validation du fonctionnement lors de la phase de recette avec les utilisateurs métier.</li>
+  </ul></div>
+
+  <h3>Semaine 5 : Qualification, mise en production (promotion) et bilan</h3>
+  <p>La dernière semaine a concrétisé la mise en production du projet. Vous avez déployé le job sur la console d’administration cloud de Talend (Talend Management Console), configuré son ordonnancement perpétuel en préproduction via une expression CRON (exécution tous les lundis à 8h00), puis effectué sa promotion vers l’environnement de production. Après avoir basculé les variables vers le contexte de production (CONTEXT_PROD) et validé l’exécution par un test manuel, vous avez rédigé la documentation technique complète du projet. Enfin, vous avez présenté vos travaux lors de réunions d’équipe et dressé le bilan professionnel et personnel de votre stage.</p>
+  <div class="comp"><p>Compétences du Bloc 1 associées</p><ul>
+    <li><strong>1.1 Recenser et identifier les ressources numériques :</strong> gestion des artefacts et déploiements à travers les environnements Studio, Préprod et Prod.</li>
+    <li><strong>4.3 Suivi du projet et analyse des écarts :</strong> participation aux points de suivi projet, réunions de développement et mise à jour des indicateurs d’avancement.</li>
+    <li><strong>5.2 Déploiement du service :</strong> migration applicative (promotion PreProd vers Prod), passage aux variables de production et automatisation de l’ordonnancement CRON.</li>
+    <li><strong>5.3 Accompagnement des utilisateurs :</strong> rédaction d’une documentation technique claire pour les équipes de développement et d’exploitation.</li>
+    <li><strong>6.2 Veille informationnelle :</strong> recherches sur le fonctionnement de l’Active Directory, du CRON et des composants ETL.</li>
+    <li><strong>6.3 Identité professionnelle &amp; 6.4 Projet professionnel :</strong> bilan de compétences, valorisation du portfolio/CV (orienté ETL/Talend) et formalisation des perspectives d’évolution.</li>
+  </ul></div>
+</article>
+
+<article id="sql">
+  <h2>Missions 2 : Entraînement des requêtes SQL</h2>
+  <p class="meta">axelbigaud72 · 15 septembre · 1 min de lecture</p>
+  <p>Durant cette deuxième semaine, vous avez approfondi la maîtrise de l’outil Talend en créant des jobs expérimentaux. Vous avez mis en place la gestion de connexion aux bases de données via les composants tPrejob et tPostjob (tDBConnection, tDBClose), tout en traitant des erreurs de séquence et de blocage de fichiers existants (décochage d’options par défaut après recherche dans la documentation). Vous avez exploré les jointures de données avec tJoin et tMap. Enfin, vous avez appréhendé l’annuaire Active Directory en concevant et en testant des requêtes LDAP récursives filtrées (composant tLDAPInput) afin de cibler les membres d’un groupe applicatif.</p>
+  <div class="comp"><p>Compétences du Bloc 1 associées</p><ul>
+    <li><strong>1.4 Vérifier la continuité de service :</strong> gestion des erreurs de traitement et d’exécution dans Talend.</li>
+    <li><strong>2.2 Traiter des demandes réseau, système ou applicatives :</strong> résolution de dysfonctionnements techniques (séquençage pre/post job, écrasement de fichiers CSV).</li>
+    <li><strong>4.2 Planification et organisation des activités :</strong> structuration et suivi des étapes de développement.</li>
+    <li><strong>6.1 Mettre en place son environnement d’apprentissage personnel :</strong> autonomie dans la recherche de solutions au sein de la documentation technique officielle Talend.</li>
+  </ul></div>
+</article>
+
+<article id="etl">
+  <h2>Découverte de l’ETL</h2>
+  <p class="meta">axelbigaud72 · 6 septembre · 1 min de lecture</p>
+  <p>Lors de mon stage, j’ai découvert le développement ETL (<em>Extract, Transform, Load</em>). Ce type de <strong>technologie</strong> est utilisé par les entreprises pour <strong>automatiser</strong> des <strong>tâches</strong> et gagner du temps.</p>
+  <img src="https://static.wixstatic.com/media/671e97_c78c24c691084920ae2a7288856e9ec1~mv2.webp" alt="Découverte de l’ETL" loading="lazy">
+  <p>Il existe <strong>plusieurs</strong> logiciels qui <strong>utilisent</strong> l’ETL. Le logiciel que j’ai utilisé est Talend, le plus utilisé actuellement. C’est une <strong>solution</strong> où l’on <strong>superpose</strong> des <strong>modèles déjà prêts</strong>.</p>
+</article>
+
+<article id="html-css">
+  <h2>Certification HTML5/CSS3</h2>
+  <p class="meta">axelbigaud72 · 13 décembre 2025 · 1 min de lecture · mis à jour le 14 décembre 2025</p>
+  <p>Lors du Parcours Certification Complémentaire, j’ai réalisé la certification HTML5/CSS3 qui m’a permis de découvrir une grande partie de la création de page web.</p>
+  <p><a href="https://openclassrooms.com/fr/courses/1603881-creez-votre-site-web-avec-html5-et-css3" target="_blank" rel="noopener">Voir la formation (OpenClassrooms)</a></p>
+  <p>Cette formation dure 15 heures. Je l’ai commencée le 10 novembre 2025 et elle est actuellement en cours.</p>
+  <p>Les notions abordées ont été les balises CSS en général, avec une page nommée style.css. Cela permet de changer tout le style du site, d’utiliser les fonctions de survol sur les liens et les images, et de changer la couleur de mots que l’on définit.</p>
+  <p>La formation est inachevée, mais elle m’a apporté un esprit plus critique sur les choix de couleur pour les images, le texte et les titres, afin qu’ils soient plus adaptés à la page.</p>
+</article>
+
+<article id="cpp">
+  <h2>Certification C++</h2>
+  <p class="meta">axelbigaud72 · 10 décembre 2025 · 1 min de lecture · mis à jour le 14 décembre 2025</p>
+  <p>Lors du Parcours Certification Complémentaire, j’ai réalisé la certification C++ qui m’a permis de découvrir une grande partie du langage C++.</p>
+  <p><a href="https://openclassrooms.com/fr/courses/1894236-apprenez-a-programmer-en-c" target="_blank" rel="noopener">Voir la formation (OpenClassrooms)</a></p>
+  <p>Cette formation a duré 8 heures. Je l’ai commencée le 15 septembre 2025 et terminée le 5 novembre 2025.</p>
+  <p>Elle m’a apporté plusieurs notions : les structures, pour mieux visualiser un problème dans le code, ainsi que les pointeurs, les tableaux dynamiques et les tableaux statiques.</p>
+  <p>Elle m’a permis de travailler la logique dans la structure de mes codes et de découvrir les nombreuses fonctions et l’utilité du C++ dans le monde du numérique.</p>
+  <img src="https://static.wixstatic.com/media/671e97_5f6fb6a0a0d3414e9a779b423c943acb~mv2.png" alt="Attestation de certification C++" loading="lazy">
+  <p>Le lien avec la compétence B1.6 m’a permis d’approfondir le langage C++ pour une meilleure compréhension, une meilleure structure de mon code et de développer mon projet professionnel.</p>
+</article>
+
+<article id="wordpress">
+  <h2>Création d’un site WordPress</h2>
+  <p class="meta">axelbigaud72 · 15 octobre 2025 · 1 min de lecture · mis à jour le 1er novembre 2025</p>
+  <img src="https://static.wixstatic.com/media/671e97_d63d5aa491904e43a7136a1f1088baa8~mv2.jpg" alt="Site WordPress créé en atelier" loading="lazy">
+  <p><strong>Lors d’un Atelier Professionnel, nous avons créé un site web en utilisant WordPress. C’était passionnant de découvrir les nombreuses fonctionnalités et mécanismes que propose WordPress, car la plupart des entreprises l’utilisent pour la création de sites web, et de voir le fonctionnement de ses différents outils.</strong></p>
+  <img src="https://static.wixstatic.com/media/671e97_5283cdb0b3a94b028d3f712acb3dbf58~mv2.png" alt="Capture du site WordPress" loading="lazy">
+  <p>Ce site permet un commencement dans le monde du développement et m’a permis d’apprendre les différents outils que propose WordPress pour la création de sites web.</p>
+</article>
+
+</main>
+
+<footer><a href="https://axel-85.github.io/Portfolio/">← Retour à l’accueil du portfolio</a></footer>
+</body>
+</html>
