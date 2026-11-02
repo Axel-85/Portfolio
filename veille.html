@@ -4,7 +4,25 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Tableau de veille cybersécurité – novembre 2026</title>
-<link rel="stylesheet" href="style.css">
+<style>
+  /* ===== Page Veille ===== */
+.table-wrap{overflow-x:auto;background:#fff;border:2px solid var(--ink);border-radius:18px;box-shadow:8px 8px 0 var(--cobalt)}
+table.veille{width:100%;border-collapse:collapse;min-width:820px}
+.veille thead th{background:var(--ink);color:#fff;font-family:var(--head);font-weight:700;text-align:left;padding:16px 18px;white-space:nowrap}
+.veille tbody th,.veille tbody td{padding:18px;border-top:1px solid var(--line);vertical-align:top;text-align:left}
+.veille tbody tr:nth-child(even){background:var(--paper)}
+.veille tbody th{font-family:var(--mono);font-size:.92rem;font-weight:500;white-space:nowrap}
+.veille tbody td{color:var(--muted);font-size:.98rem;line-height:1.55}
+.veille td small{display:block;margin-top:8px;font-size:.88rem}
+.tag{display:inline-block;background:var(--sun);color:var(--ink);padding:2px 12px;border-radius:999px;font-weight:600;font-size:.92rem}
+.score{display:inline-block;min-width:2.6em;text-align:center;padding:4px 12px;border-radius:10px;font-family:var(--head);font-weight:800;font-size:1.15rem;color:#fff}
+.score.high{background:#D9640B}
+.score.crit{background:#C62828}
+.score.na{background:var(--line);color:var(--muted);font-weight:600;font-size:1rem}
+@media (max-width:860px){
+  .table-wrap{box-shadow:6px 6px 0 var(--cobalt)}
+}
+</style>
 </head>
 <body>
 <main>
