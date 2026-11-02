@@ -1,36 +1,128 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
+<html lang="fr"><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Tableau de veille cybersécurité – novembre 2026</title>
 <style>
-  /* ===== Page Veille ===== */
-.table-wrap{overflow-x:auto;background:#fff;border:2px solid var(--ink);border-radius:18px;box-shadow:8px 8px 0 var(--cobalt)}
-table.veille{width:100%;border-collapse:collapse;min-width:820px}
-.veille thead th{background:var(--ink);color:#fff;font-family:var(--head);font-weight:700;text-align:left;padding:16px 18px;white-space:nowrap}
-.veille tbody th,.veille tbody td{padding:18px;border-top:1px solid var(--line);vertical-align:top;text-align:left}
-.veille tbody tr:nth-child(even){background:var(--paper)}
-.veille tbody th{font-family:var(--mono);font-size:.92rem;font-weight:500;white-space:nowrap}
-.veille tbody td{color:var(--muted);font-size:.98rem;line-height:1.55}
-.veille td small{display:block;margin-top:8px;font-size:.88rem}
-.tag{display:inline-block;background:var(--sun);color:var(--ink);padding:2px 12px;border-radius:999px;font-weight:600;font-size:.92rem}
-.score{display:inline-block;min-width:2.6em;text-align:center;padding:4px 12px;border-radius:10px;font-family:var(--head);font-weight:800;font-size:1.15rem;color:#fff}
-.score.high{background:#D9640B}
-.score.crit{background:#C62828}
-.score.na{background:var(--line);color:var(--muted);font-weight:600;font-size:1rem}
-@media (max-width:860px){
-  .table-wrap{box-shadow:6px 6px 0 var(--cobalt)}
+:root {
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  --bg: #f3f5f8;
+  --surface: #ffffff;
+  --text: #17202e;
+  --muted: #5b6678;
+  --line: #d9dfe8;
+  --head-bg: #1d2b44;
+  --head-text: #f2f5fa;
+  --row-alt: #f8fafc;
+  --tag-bg: #e6ecf5;
+  --tag-text: #25364f;
+  --crit: #b3261e;
+  --high: #c8620a;
+  --est-border: #8a94a6;
 }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #0f1520;
+    --surface: #172030;
+    --text: #e8edf5;
+    --muted: #9aa6b8;
+    --line: #2a3750;
+    --head-bg: #243553;
+    --head-text: #f2f5fa;
+    --row-alt: #1b2538;
+    --tag-bg: #25344d;
+    --tag-text: #cfdaee;
+    --crit: #ff6b61;
+    --high: #ffa04d;
+    --est-border: #6f7b90;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #0f1520;
+  --surface: #172030;
+  --text: #e8edf5;
+  --muted: #9aa6b8;
+  --line: #2a3750;
+  --head-bg: #243553;
+  --head-text: #f2f5fa;
+  --row-alt: #1b2538;
+  --tag-bg: #25344d;
+  --tag-text: #cfdaee;
+  --crit: #ff6b61;
+  --high: #ffa04d;
+  --est-border: #6f7b90;
+}
+html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Source Sans 3", "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+  line-height: 1.5;
+  padding: 2rem 1rem 3rem;
+}
+main { max-width: 1050px; margin: 0 auto; }
+h1 { font-size: 1.6rem; margin: 0 0 .25rem; letter-spacing: -.01em; }
+.sub { color: var(--muted); margin: 0 0 1.5rem; }
+.wrap {
+  overflow-x: auto;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+table { width: 100%; border-collapse: collapse; min-width: 720px; }
+caption { text-align: left; padding: .9rem 1rem; color: var(--muted); font-size: .9rem; }
+thead th {
+  background: var(--head-bg);
+  color: var(--head-text);
+  text-align: left;
+  font-weight: 600;
+  padding: .8rem 1rem;
+  white-space: nowrap;
+}
+tbody td, tbody th {
+  padding: .95rem 1rem;
+  border-top: 1px solid var(--line);
+  vertical-align: top;
+  text-align: left;
+}
+tbody tr:nth-child(even) { background: var(--row-alt); }
+tbody th { font-weight: 600; white-space: nowrap; }
+.tag {
+  display: inline-block;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  border-radius: 4px;
+  padding: .15rem .5rem;
+  font-weight: 600;
+  font-size: .9rem;
+}
+td small { display: block; color: var(--muted); margin-top: .35rem; }
+.score { white-space: nowrap; font-weight: 700; font-size: 1.15rem; }
+.score.crit { color: var(--crit); }
+.score.high { color: var(--high); }
+.score small { font-weight: 400; font-size: .8rem; color: var(--muted); }
+.score.est { border-left: 3px dashed var(--est-border); padding-left: .6rem; }
+h2 { font-size: 1.2rem; margin: 0 0 .75rem; }
+.wrap + h2 { margin-top: 2.5rem; }
+.score.na { color: var(--muted); font-weight: 400; font-size: 1rem; }
+.notes { margin-top: 1.25rem; color: var(--muted); font-size: .9rem; }
+.notes p { margin: .3rem 0; }
+:focus-visible { outline: 3px solid var(--high); outline-offset: 2px; }
 </style>
 </head>
 <body>
 <main>
-  <h1>Tableau de veille informatique </h1>
+  <h1>Tableau de veille cybersécurité</h1>
   <p class="sub">Failles et incidents d’octobre 2026, relevés au 2 novembre 2026.</p>
-  <div class="wrap" tabindex="0" role="region" aria-label="Tableau de veille">
+
+  <h2>Tableau 1 : PHP, Binance et box Wi-Fi</h2>
+  <div class="wrap" tabindex="0" role="region" aria-label="Tableau de veille 1">
     <table>
-      <caption>Tableau de veille du 29 octobre</caption>
+      <caption>Quatre entrées issues des articles fournis</caption>
       <thead>
         <tr>
           <th scope="col">Date</th>
@@ -78,18 +170,12 @@ table.veille{width:100%;border-collapse:collapse;min-width:820px}
         </tr>
       </tbody>
     </table>
-    <!DOCTYPE html>
-<html lang="fr">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Tableau de veille</title>
-</head>
-<body>
-<main>
-  <h1>Tableau de veille</h1>
-  <div class="wrap">
+  </div>
+
+  <h2>Tableau 2 : SQL, Android et IA</h2>
+  <div class="wrap" tabindex="0" role="region" aria-label="Tableau de veille 2">
     <table>
+      <caption>Quatre entrées complémentaires</caption>
       <thead>
         <tr>
           <th scope="col">Date</th>
@@ -126,10 +212,6 @@ table.veille{width:100%;border-collapse:collapse;min-width:820px}
       </tbody>
     </table>
   </div>
-  <div class="notes">
-    <p>Les lignes à bordure en pointillés ont une gravité estimée, faute de score CVSS publié.</p>
-    <p>Les articles de France Inter, 01net et BFM TV n’étaient pas accessibles directement : leurs sujets ont été recoupés via d’autres médias.</p>
-  </div>
 </main>
-</body>
-</html>
+
+</body></html>
